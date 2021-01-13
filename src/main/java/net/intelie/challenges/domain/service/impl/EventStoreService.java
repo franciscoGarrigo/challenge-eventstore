@@ -8,7 +8,6 @@ import org.springframework.util.StopWatch;
 import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.intelie.challenges.domain.infrastructure.repository.EventStoreRepository;
 import net.intelie.challenges.domain.infrastructure.utils.CustomStopWatch;
 import net.intelie.challenges.domain.model.Event;
 import net.intelie.challenges.domain.model.EventIterator;
@@ -20,9 +19,7 @@ import net.intelie.challenges.domain.service.EventStore;
 @RequiredArgsConstructor
 public class EventStoreService implements EventStore{
 	
-	public final RedisService redisService;
-	
-	public final EventStoreRepository repository;
+	public final RedisService redisService;	
 	
 	@Override
 	public void insert(Event event) {
