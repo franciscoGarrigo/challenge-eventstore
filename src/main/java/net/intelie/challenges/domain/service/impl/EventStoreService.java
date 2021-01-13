@@ -1,5 +1,6 @@
 package net.intelie.challenges.domain.service.impl;
 
+import java.util.Objects;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class EventStoreService implements EventStore{
 		EventStoreIterator iterator = new EventStoreIterator();
 		iterator.setEvents(events);	
 		
-		log.info("Query got {} events. {}. Duration {} ms",events.size(), events, stopWatch.getTotalTimeMillis());
+		log.info("Query got {} events. {}. Duration {} ms",Objects.isNull(events)?0:events.size(), events, stopWatch.getTotalTimeMillis());
 		
 		return iterator;
 		

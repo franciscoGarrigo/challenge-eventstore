@@ -45,6 +45,12 @@ public class ErrorHandler {
         
     }
     
+    /**
+     * Create a error map with all possible errors in the application to avoid to show a long stack trace for the requester 
+     *    
+     * @param message
+     * @return
+     */
     private static Map<String,Object> createErrorMap(String message) {
         Map<String, Object> map = new HashMap<>();
         map.put("error", message);

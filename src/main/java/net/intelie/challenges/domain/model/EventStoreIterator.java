@@ -2,6 +2,7 @@ package net.intelie.challenges.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -77,7 +78,9 @@ public class EventStoreIterator implements EventIterator{
 	
 	public void setEvents(Set<Event> events) {
 		this.events = new ArrayList<>();
-		this.events.addAll(events);
+		if (Objects.nonNull(events)) {
+			this.events.addAll(events);
+		}
 	}
 
 }
