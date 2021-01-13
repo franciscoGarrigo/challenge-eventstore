@@ -1,5 +1,5 @@
 package net.intelie.challenges.domain.service.impl;
-import static net.intelie.challenges.domain.infrastructure.utils.EventUtils.toMillis;
+import static net.intelie.challenges.domain.infrastructure.utils.EventUtils.nowToMillis;
 
 import java.util.Set;
 
@@ -15,15 +15,14 @@ public class RedisService {
 
 	private final RedisTemplate<String, Event> redisTemplate;
 
-	private final static String KEY_PREFIX = "EventStore-";
-	
+	private final static String KEY_PREFIX = "EventStore-";	
 	
 	public void put(Event value) {
 		redisTemplate.opsForZSet().add(KEY_PREFIX+value.getType(), value, value.getTimestamp());
 	}
 
 	public void clean(String type) {
-		redisTemplate.opsForZSet().removeRange(KEY_PREFIX+type,0,toMillis());
+		redisTemplate.opsForZSet().removeRange(KEY_PREFIX+type,0,nowToMillis());
 	}
 	
 	public Set<Event> query(String type, long startTime, long endTime) {

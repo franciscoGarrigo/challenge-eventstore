@@ -24,7 +24,7 @@ public class EventStoreService implements EventStore{
 	@Override
 	public void insert(Event event) {
 		@Cleanup("stop")
-        StopWatch stopWatch = new CustomStopWatch();
+        StopWatch stopWatch = new CustomStopWatch();// here i decided to measure the duration of each process and then print in console log
 		
 		redisService.put(event);
 		

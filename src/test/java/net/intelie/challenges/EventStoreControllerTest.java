@@ -2,7 +2,9 @@ package net.intelie.challenges;
 
 import org.junit.Test;
 
-public class EventTest {
+public class EventStoreControllerTest {
+	
+	
     @Test
     public void thisIsAWarning() throws Exception {
 //        Event event = new Event("some_type", 123L);

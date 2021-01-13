@@ -22,15 +22,14 @@ public class Event implements Serializable {
 
 	private static final long serialVersionUID = -7718031121649348203L;
 	
-	private String id;
+	private String id; // a key that ensure the unicity of events in database
 	
-	private EventType type;
+	private EventType type; //here i created some domain of event types based on daily events of services in general
 
-	private OriginType origin;
+	private OriginType origin; //here i created some domain of origin types based on daily generical services
 	
-	@Builder.Default
-	private String eventGenerator = "Very-Crazy-Service";
+	private String eventGenerator; // identify some random event generator.
 	
-    private long timestamp;
+    private long timestamp; // mark a time of event registry
     
 }

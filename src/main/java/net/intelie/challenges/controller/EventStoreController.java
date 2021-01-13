@@ -66,7 +66,7 @@ public class EventStoreController {
 	public ResponseEntity<List<EventDTO>> findAllByTypeAndRangeTime(
 			@RequestParam String eventType,
 			@RequestParam long startTime,
-			@RequestParam long endTime){
+			@RequestParam long endTime) throws Exception{
 		
 		@Cleanup("stop")
         StopWatch stopWatch = new CustomStopWatch();

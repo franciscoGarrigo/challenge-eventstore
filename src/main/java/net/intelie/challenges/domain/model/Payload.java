@@ -18,6 +18,8 @@ public class Payload {
 	
 	@NotBlank(message = "Origin cannot be blank")
 	private String origin;
+	
+	private String eventGenerator;
 
 	
 }

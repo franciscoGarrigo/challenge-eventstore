@@ -17,7 +17,7 @@ import net.intelie.challenges.domain.model.Event;
 @EnableRedisRepositories
 @EnableCaching
 @Configuration
-public class RedisConfig {
+public class RedisConfig {	
 
     @Bean
     public RedisTemplate<String, Event> redisTemplate(final LettuceConnectionFactory connectionFactory) {

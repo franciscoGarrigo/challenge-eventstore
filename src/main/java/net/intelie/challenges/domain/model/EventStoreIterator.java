@@ -9,6 +9,23 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
+
+/**
+ * Implementation of an iterator
+ * 
+ * {@link #moveNext} starts incrementing the variable index to adjust the position for the first element (index 0)
+ * 
+ * the index begins in -1 for the first call of {@link #moveNext} Method
+ * 
+ * the variable <b>called</b> is a boolean that ensures the mandatory call to {@link #moveNext} to guarantee the integrity of a iterator and its list
+ * 
+ * the method {@link #close} clear the aux list when the iterator executions comes to the end
+ * 
+ * @throws IllegalStateException when methods {@link #current} and {@link #remove} are called without previous call of moveNext or when the list came to the end
+ * 
+ * @author franciscogarrigo
+ *
+ */
 public class EventStoreIterator implements EventIterator{
 	
 	private List<Event> events;
