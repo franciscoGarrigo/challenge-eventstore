@@ -9,12 +9,10 @@ spring:
       enabled: false
       
   redis:
-# in case of execution of this projects with docker compose, uncomment line below if commented  
     host: 'challenge-eventstore_redis_1'
-# in case of execution of this projects with an IDE, uncomment line below if commented  
 #    host: 'localhost'
     database: 1
-# In this case, i preferred to use Lettuce because this is an scalable and thread safe client for redis    
+# In this case, i prefer to use Lettuce because this is an natural scalable and thread safe client for redis    
     lettuce: 
     
 # Here, i use a connection pool for multithreading and reusing connections, in addition to ensure thread safe (This object is thread safe)    
