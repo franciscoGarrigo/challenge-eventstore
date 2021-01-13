@@ -7,15 +7,16 @@ spring:
   cloud:
     config:
       enabled: false
-      
+
+#Note: when a ran this project in docker mode, i have found a redis warning (WARNING overcommit_memory is set to 0!) i know how to fix this but I didn't feel comfortable to set the overcommit_memory to 1 because of possibles security issues      
   redis:
     host: 'challenge-eventstore_redis_1'
 #    host: 'localhost'
     database: 1
-# In this case, i prefer to use Lettuce because this is an natural scalable and thread safe client for redis    
+# In this case, i preferred to use Lettuce because this is a scalable and thread-safe client for redis    
     lettuce: 
     
-# Here, i use a connection pool for multithreading and reusing connections, in addition to ensure thread safe (This object is thread safe)    
+# Here, i use a connection pool for multithreading and reusing connections, in addition to ensure thread-safety (The object pool is thread-safe)    
       pool:
         max-active: 32
         max-idle: 2
