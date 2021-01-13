@@ -10,6 +10,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.util.ReflectionTestUtils.setField;
 
@@ -82,6 +83,7 @@ public class EventStoreControllerTest {
 		assertTrue(responseList.getBody().get(0).getOrigin().equals(event.getOrigin()));
 		assertTrue(responseList.getBody().get(0).getType().equals(event.getType()));
 		assertTrue(responseList.getBody().get(0).getEventDate().isBefore(Instant.ofEpochMilli(endTime).atZone(ZoneId.systemDefault()).toLocalDateTime()));
+        verify(redisService, times(1)).query(EventType.BATCH.toString(), 0l, endTime);
 
 	    	
 	}
@@ -97,6 +99,7 @@ public class EventStoreControllerTest {
 		
 		assertTrue(responseList.getStatusCode() == HttpStatus.OK);
 		assertTrue(responseList.getBody().size() == 0);
+        verify(redisService, times(1)).query(EventType.BATCH.toString(), 0l, 23434123412341l);
 
 
 	    	
@@ -112,7 +115,8 @@ public class EventStoreControllerTest {
 		assertTrue(response.getStatusCode() == HttpStatus.OK);
 		assertTrue(response.getBody().getType().toString().equals(payload.getType()));
 		assertTrue(response.getBody().getCreateTime() <= Instant.now().toEpochMilli());
-
+		
+        verify(redisService, times(1)).put(any(Event.class));
 	    	
 	}
 	
