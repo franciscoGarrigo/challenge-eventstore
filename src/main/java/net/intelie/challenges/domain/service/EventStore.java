@@ -1,4 +1,7 @@
-package net.intelie.challenges;
+package net.intelie.challenges.domain.service;
+
+import net.intelie.challenges.domain.model.Event;
+import net.intelie.challenges.domain.model.EventIterator;
 
 /**
  * An abstraction of an event store.

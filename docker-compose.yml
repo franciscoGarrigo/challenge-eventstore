@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  app:
+    image: 'challenge-eventstore:latest'
+    env_file:
+      - src/main/resources/application.yml
+    build:
+      context: .
+    container_name: challenge-eventstore
+    command: mvn clean install
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+          
+  redis:
+    image: 'redis:6.0.9-alpine'

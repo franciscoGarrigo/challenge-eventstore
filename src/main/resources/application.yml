@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /challenge-service
+
+spring:
+  cloud:
+    config:
+      enabled: false
+      
+  redis:
+    host: 'challenge-eventstore_redis_1'
+#    host: 'localhost'
+    database: 1
+    lettuce:
+      pool:
+        max-active: 32
+        max-idle: 2
+        min-idle: 1
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, info
+  endpoint:
+    metrics:
+      enabled: false

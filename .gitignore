@@ -14,3 +14,8 @@
 /trace.db
 .jhw-cache
 dependency-reduced-pom.xml
+/.settings/
+/bin/
+/.attach_pid13710
+/.classpath
+/.project
